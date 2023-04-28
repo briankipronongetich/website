@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Towns in Kenya with their elevations in meters</title>
+	<link rel="stylesheet" href="style.css">
+<head>
+<body>
+<header>
+<h1> Towns in Kenya with their elevations in meters</h1>
+		<nav>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="about.html">About Brian Ngetich</a></li>
+				
+				<li><a href="storymap.html">Story maps</a></li>
+				<li><a href="popupmaps.html">maps with custom popups</a></li>
+				<li><a href="contact.html">contacts</a></li>
+                <li><a href="chat.html">Comment my Work</a></li>
+			</ul>
+		</nav>
+<head>
+<title>Kenya Towns Map with their elevation in meters</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
+	<style>
+		#mapid {
+			height: 500px;
+			border: 2px solid #ccc;
+			border-radius: 5px;
+			margin: 10px;
+		}
+
+		#map-title {
+			background-color: #fff;
+			border: 2px solid #ccc;
+			border-top-left-radius: 5px;
+			border-top-right-radius: 5px;
+            margin: 0px;
+			padding: 10px;
+			font-size: 24px;
+			font-weight: bold;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div id="map-container">
+		<div id="map-title">Map of Towns in Kenya with their Elevation in Meters</div>
+		<div id="mapid"></div>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+	<script>
+		// create a Leaflet map centered at Nairobi, Kenya
+		var map = L.map('mapid').setView([-1.2921, 36.8219], 7);
+
+		// add an OpenStreetMap tile layer
+		L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+			maxZoom: 19,
+			attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
+		}).addTo(map);
+
+		// define an array of towns in Kenya with their names and altitudes
+		var towns = [
+			{
+				name: "Nairobi",
+				latitude: -1.2921,
+				longitude: 36.8219,
+				altitude: 1661
+			},
+			{
+				name: "Mombasa",
+				latitude: -4.0435,
+				longitude: 39.6682,
+				altitude: 50
+			},
+			{
+				name: "Kisumu",
+				latitude: -0.1022,
+				longitude: 34.7617,
+				altitude: 1131
+			},
+            {
+					name: "Kericho",
+					latitude: -0.3616,
+					longitude: 35.2805,
+					altitude: 2190
+			},
+            {
+					name: "Isiolo",
+					latitude: 0.3546,
+					longitude: 37.5822,
+					altitude: 1020
+			},
+            {
+					name: "Kitui",
+					latitude: -1.3667,
+					longitude: 38.0167,
+					altitude: 1023
+			},
+			{
+				name: "Nakuru",
+				latitude: -0.3031,
+				longitude: 36.0800,
+				altitude: 1859
+			},
+            {
+					name: "Malindi",
+					latitude: -3.2167,
+					longitude: 40.1167,
+					altitude: 8
+			},
+            {
+					name: "Machakos",
+					latitude: -1.5072,
+					longitude: 37.2633,
+					altitude: 1630
+				},
+            {
+					name: "Machakos",
+					latitude: -1.5072,
+					longitude: 37.2633,
+					altitude: 1630
+				},
+			{
+				name: "Eldoret",
+				latitude: 0.5143,
+				longitude: 35.2698,
+				altitude: 2117
+			},
+            {
+					name: "Isiolo",
+					latitude: 0.3546,
+					longitude: 37.5822,
+					altitude: 1020
+				}
+
+		];
+
+		// add markers to the map for each town
+		for (var i = 0; i < towns.length; i++) {
+			var town = towns[i];
+			var marker = L.marker([town.latitude, town.longitude]).addTo(map);
+
+			// define a popup for each marker with the town name and altitude
+			var popupContent = "<b>" + town.name + "</b><br>" +
+							   "Altitude: " + town.altitude + "m";
+			marker.bindPopup(popupContent);
+		}
+	</script>
+</body>
+<footer>
+		<p>&copy; 2023@ brian ngetich</p>
+</html>

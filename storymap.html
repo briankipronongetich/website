@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Story Maps</title>
+	<link rel="stylesheet" href="style.css">
+	<script>
+		// function to change the iframe source when user selects a story
+		function changeStory() {
+			var select = document.getElementById("storySelect");
+			var story = select.options[select.selectedIndex].value;
+			var iframe = document.getElementById("storyMap");
+			iframe.src = story;
+		}
+	</script>
+</head>
+<body>
+	<header>
+		<h1>Story Maps</h1>
+		<nav>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="about.html">About</a></li>
+				<li><a href="storymap.html">Story Maps</a></li>
+				<li><a href="popupmaps.html">Maps with Custom Popups</a></li>
+				<li><a href="contacts.html">contacts</a></li>
+				<li><a href="chat.html">Comment my Work</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<section>
+			<h2>Select a Story Map:</h2>
+			<select id="storySelect" onchange="changeStory()">
+				<option value="https://storymaps.arcgis.com/stories/3b25ad6843dc45559821d90eb02f18bf">World Wetlands</option>
+				<option value="https://storymaps.arcgis.com/stories/358b83b5f776402fa726cfa316aa197c">African Girraffe</option>
+			</select>
+		</section>
+		<section>
+			<h2>Story Map:</h2>
+			<iframe id="StoryMap World Wetlands" src="https://storymaps.arcgis.com/stories/3b25ad6843dc45559821d90eb02f18bf" width="100%" height="500px" frameborder="0" allowfullscreen allow="geolocation"></iframe>
+      <iframe src="https://storymaps.arcgis.com/stories/358b83b5f776402fa726cfa316aa197c" width="100%" height="500px" frameborder="0" allowfullscreen allow="geolocation"></iframe>
+		</section>
+   
+    
+
+	</main>
+	<footer>
+		<p>&copy; 2023@ brian ngetich</p>
+	</footer>
+</body>
+</html>

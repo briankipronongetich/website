@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Chat with Brian Ngetich</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('#send').click(function(){
+				var message = $('#message').val();
+				$('#message').val('');
+				$('#chat').append('<p class="outgoing-msg">' + message + '</p>');
+				$.get('/send_message', {'message': message});
+			});
+			setInterval(function(){
+				$.get('/get_message', function(data){
+					$('#chat').append('<p class="incoming-msg">' + data + '</p>');
+				});
+			}, 1000);
+		});
+	</script>
+</head>
+<body>
+	<header>
+		<h1>Chat with Brian Ngetich</h1>
+		<nav>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="about.html">About Brian Ngetich</a></li>
+				<li><a href="storymap.html">Story maps</a></li>
+				<li><a href="popupmaps.html">Maps with custom popups</a></li>
+				<li><a href="contact.html">Contacts</a></li>
+                <li><a href="chat.html">Comment my Work</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<section>
+			<div id="chat-window">
+				<div id="chat">
+				</div>
+				<div id="user-input">
+					<textarea id="message" placeholder="Type your message here..." rows="5" cols="50"></textarea>
+					<button id="send">Send</button>
+				</div>
+			</div>
+		</section>
+	</main>
+	<footer>
+		<p>&copy; 2023@ brian ngetich</p>
+	</footer>
+</body>
+</html>
